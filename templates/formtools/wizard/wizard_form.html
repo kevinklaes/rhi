@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head %}
+{{ wizard.form.media }}
+{% endblock %}
+
+{% block content %}
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+<form action="" method="post" class='form-horizontal'>{% csrf_token %}
+<table class='table table-striped'>
+{{ wizard.management_form }}
+{% if wizard.form.forms %}
+    {{ wizard.form.management_form }}
+    {% for form in wizard.form.forms %}
+        {{ form }}
+    {% endfor %}
+{% else %}
+    {% crispy wizard.form %}
+{% endif %}
+</table>
+{% if wizard.steps.prev %}
+{% comment %}
+These are removed due to not wanting the individual to go back. If these are wanted, add them back in survey.forms using crispy_forms
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">Page 1</button>
+<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Previous Page</button>
+{% endcomment %}
+{% endif %}
+</form>
+{% endblock %}
+
+

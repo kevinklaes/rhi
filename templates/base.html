@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+<head>
+<title>{% block page_title %}{{ page_title|default:'Out for Health' }}{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel='stylesheet' href='{% static 'bootstrap/css/bootstrap.min.css' %}' type='text/css' />
+{% block css %}{% endblock %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script type='text/javascript' src='{% static 'bootstrap/js/bootstrap.min.js' %}'></script>
+
+{% include 'analytics.html' %}
+{% block js %}{% endblock %}
+
+</head>
+<body>
+<div class='container'>
+{% block logo %}{% endblock %}
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>
