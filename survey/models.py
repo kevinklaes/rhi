@@ -31,15 +31,15 @@ ETHNICITY_CHOICES = (('Black / African American', 'Black / African American'),
                     ('Laotian', 'Laotian'),
                     ('Cambodian', 'Cambodian'),
                     ('Other', 'Other'),)
-PAGE_THREE_CHOICE_SET = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7))
-PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE = ((0, 'None'),
-                                        (1, 'Less than 1/2 an hour'),
-                                        (2, '1/2 - 2 hours'),
-                                        (3, '2 1/5 - 4 hours'),
-                                        (4, '4 1/2 - 6 hours'),
-                                        (5, '6 1/2 hours or more'),)
-PAGE_FOUR_CHOICE_SET_DAYS = ((1, '1 day'), (2, '2 days'), (3, '3 days'), (4, '4 days'), (5, '5 days'), (6, '6 days'), (7, '7 days'))
-PAGE_FIVE_CHOICE_SET = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7))
+PAGE_THREE_CHOICE_SET = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'))
+PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE = (('None', 'None'),
+                                        ('1', 'Less than 1/2 an hour'),
+                                        ('2', '1/2 - 2 hours'),
+                                        ('3', '2 1/5 - 4 hours'),
+                                        ('4', '4 1/2 - 6 hours'),
+                                        ('5', '6 1/2 hours or more'),)
+PAGE_FOUR_CHOICE_SET_DAYS = (('1', '1 day'), ('2', '2 days'), ('3', '3 days'), ('4', '4 days'), ('5', '5 days'), ('6', '6 days'), ('7', '7 days'))
+PAGE_FIVE_CHOICE_SET = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'))
 PAGE_FIVE_CHOICE_SET_YNNS = (('Yes', 'Yes'), ('No', 'No'), ('Dont\' know / Not sure', 'Don\'t know / Not sure'))
 
 class Survey(models.Model):
@@ -48,12 +48,12 @@ class Survey(models.Model):
     state = USStateField('What state do you live in?')
     zipcode = models.CharField('In which zip code do you live?', max_length=10)
     sexual_orientation = models.CharField('What best describes your sexual orientation?', max_length=30, choices=SEXUAL_ORIENTATION_CHOICES)
-    sexual_orientation_other = models.CharField(max_length=30, blank=True, null=True)
+    sexual_orientation_other = models.CharField('If you chose other for your sexual orientation, please provide it here', max_length=30, blank=True, null=True)
     gender_identity = models.CharField('What is your current gender identity?', max_length=40, choices=GENDER_CHOICES)
-    gender_identity_other = models.CharField(max_length=40, blank=True, null=True)
+    gender_identity_other = models.CharField('If you selected other for your gender identity, please provide it here.', max_length=40, blank=True, null=True)
     gender_assigned = models.CharField('What sex were you assigned at birth, meaning on your original birth certificate?', max_length=20, choices=GENDER_CHOICES_ASSIGNED)
     ethnicity = models.CharField('What best describes your racial/ethnic background?', help_text='(please check all that apply)', max_length=40, choices=ETHNICITY_CHOICES)
-    ethnicity_other = models.CharField(max_length=40, blank=True, null=True)
+    ethnicity_other = models.CharField('If you selected other for ethnicity, please provide it here.', max_length=40, blank=True, null=True)
     
     # Page 2 - The device
     current_body_shape_shoulders = models.IntegerField(max_length=3)
@@ -74,7 +74,7 @@ class Survey(models.Model):
     exercise_muscle = models.CharField('I exercise to increase my muscle mass.', max_length=1, choices=PAGE_THREE_CHOICE_SET)
     exercise_not = models.CharField('I do not exercise.', max_length=1, choices=PAGE_THREE_CHOICE_SET)
 
-    exercise_other_reasons = models.TextField()
+    exercise_other_reasons = models.TextField('If you have any other reasons for exercising, please list them below:')
 
     # Page 4
     strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
@@ -89,7 +89,7 @@ class Survey(models.Model):
     self_esteem = models.CharField('Overall, I have high self-esteem.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     time_to_exercise = models.CharField('I do not have enough time to exercise.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_enjoyable = models.CharField('I do not find exercise enjoyable.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
-    exercise_risk_age = models.CharField('I’m getting older so exercise can be risky.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
+    exercise_risk_age = models.CharField('I\'m getting older so exercise can be risky.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_poor_health = models.CharField('I have poor health so exercise can be risky.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_lack_skills = models.CharField('I do not get enough exercise because I have never learned the skills for any sport.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_lack_funds = models.CharField('I think it\'s too expensive to include physical activity in my life. You have to take a class or join a club or buy the right equipment.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
@@ -101,6 +101,6 @@ class Survey(models.Model):
     exercise_safety_concern = models.CharField('I do not feel safe or comfortable in the fitness spaces available to me.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_inconvenient = models.CharField('I find it inconvenient to exercise.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_goals = models.CharField('I have difficulty setting exercise goals, monitoring progress, and rewarding my own progress towards those goals.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
-    exercise_lgbtq_friendly = models.CharField(max_length=25, choices=PAGE_FIVE_CHOICE_SET_YNNS)
-    exercise_space_friendly = models.TextField(max_length=400)
-    improve_lgbtq_spaces = models.TextField(max_length=400)
+    exercise_lgbtq_friendly = models.CharField('Do you feel like you have access to an LGBTQ-friendly exercise environment? This could be a fitness center, classes, a park, a sports team, etc.', max_length=25, choices=PAGE_FIVE_CHOICE_SET_YNNS)
+    exercise_space_friendly = models.TextField('How do you know if an exercise space is LGBTQ friendly? For example, do you notice signage, staff, or other people exercising?', max_length=400)
+    improve_lgbtq_spaces = models.TextField('What could spaces or activities do to become more friendly and welcoming to the LGBTQ community?', max_length=400)

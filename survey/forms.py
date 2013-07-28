@@ -83,6 +83,21 @@ class PageFive(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
         self.helper.add_input(Submit('submit', 'Next Page'))
+        self.helper.layout = Layout('',
+                                    InlineRadios('self_esteem'),
+                                    InlineRadios('time_to_exercise'),
+                                    InlineRadios('exercise_enjoyable'),
+                                    InlineRadios('exercise_risk_age'),
+                                    InlineRadios('exercise_poor_health'),
+                                    InlineRadios('exercise_lack_skills'),
+                                    InlineRadios('exercise_lack_funds'),
+                                    InlineRadios('exercise_intimidation'),
+                                    InlineRadios('exercise_get_enough'),
+                                    InlineRadios('low_self_esteem'),
+                                    InlineRadios('exercise_lack_access'),
+                                    InlineRadios('exercise_safety_concern'),
+                                    InlineRadios('exercise_inconvenient'),
+                                    InlineRadios('exercise_goals'),)
 
     class Meta:
         model = Survey
