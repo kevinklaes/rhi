@@ -1,0 +1,8 @@
+*.swp
+*.sql
+*.pyc
+templates/analytics.html
+rhi/wsgi.py
+rhi/settings.py
+djtest/wsgi.py
+djtest/settings.py
