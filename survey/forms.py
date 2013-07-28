@@ -2,7 +2,8 @@ from django import forms
 from django_localflavor_us.forms import USZipCodeField
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Layout, Fieldset, ButtonHolder
+from crispy_forms.bootstrap import InlineRadios
 
 from survey.models import *
 
@@ -49,6 +50,15 @@ class PageThree(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
         self.helper.add_input(Submit('submit', 'Next Page'))
+        self.helper.layout = Layout('',
+                                    InlineRadios('exercise_stay_health'),
+                                    InlineRadios('exercise_lose_weight'),
+                                    InlineRadios('exercise_improve_appearance'),
+                                    InlineRadios('exercise_energize'),
+                                    InlineRadios('exercise_sport'),
+                                    InlineRadios('exercise_fun'),
+                                    InlineRadios('exercise_muscle'),
+                                    InlineRadios('exercise_not'),)
 
     class Meta:
         model = Survey
