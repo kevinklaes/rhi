@@ -74,7 +74,7 @@ class Survey(models.Model):
     exercise_muscle = models.CharField('I exercise to increase my muscle mass.', max_length=1, choices=PAGE_THREE_CHOICE_SET)
     exercise_not = models.CharField('I do not exercise.', max_length=1, choices=PAGE_THREE_CHOICE_SET)
 
-    exercise_other_reasons = models.TextField('If you have any other reasons for exercising, please list them below:')
+    exercise_other_reasons = models.TextField('If you have any other reasons for exercising, please list them below:', null=True, blank=True)
 
     # Page 4
     strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
