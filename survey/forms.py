@@ -7,8 +7,6 @@ from crispy_forms.bootstrap import InlineRadios
 
 from survey.models import *
 
-PAGE_THREE_CHOICE_SET = ((1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7))
-
 class PageOne(forms.ModelForm):
     zipcode = USZipCodeField()
 
@@ -24,6 +22,13 @@ class PageOne(forms.ModelForm):
                     'ethnicity', 'ethnicity_other',)
 
 class PageTwo(forms.ModelForm):
+    current_body_shape_shoulders = forms.CharField(widget = forms.HiddenInput())
+    current_body_shape_waist = forms.CharField(widget = forms.HiddenInput())
+    current_body_shape_hips = forms.CharField(widget = forms.HiddenInput())
+    ideal_body_shape_shoulders = forms.CharField(widget = forms.HiddenInput())
+    ideal_body_shape_waist = forms.CharField(widget = forms.HiddenInput())
+    ideal_body_shape_hips = forms.CharField(widget = forms.HiddenInput())
+    
     def __init__(self, *args, **kwargs):
         super(PageTwo, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -66,11 +71,25 @@ class PageThree(forms.ModelForm):
                     'exercise_sport', 'exercise_fun', 'exercise_muscle', 'exercise_not',)
 
 class PageFour(forms.ModelForm):
+    strenuous_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    moderate_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strength_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strenuous_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    moderate_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strength_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+
     def __init__(self, *args, **kwargs):
         super(PageFour, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
         self.helper.add_input(Submit('submit', 'Next Page'))
+        self.helper.layout = Layout('',
+                                InlineRadios('strenuous_activity_type'),
+                                InlineRadios('moderate_activity_type'),
+                                InlineRadios('strength_activity_type'),
+                                InlineRadios('strenuous_activity_type'),
+                                InlineRadios('moderate_activity_type'),
+                                InlineRadios('strength_activity_days'),)
 
     class Meta:
         model = Survey
@@ -78,6 +97,20 @@ class PageFour(forms.ModelForm):
                     'strenuous_activity_days', 'moderate_activity_days', 'strength_activity_days',)
 
 class PageFive(forms.ModelForm):
+    self_esteem = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    time_to_exercise = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_enjoyable = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_risk_age = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_poor_health = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_lack_skills = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_lack_funds = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_intimidation = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_get_enough = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    low_self_esteem = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_safety_concern = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_inconvenient = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_goals  = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+
     def __init__(self, *args, **kwargs):
         super(PageFive, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
