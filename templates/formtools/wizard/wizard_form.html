@@ -8,6 +8,22 @@
 <p>Page {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post" class='form-horizontal'>
 {{ wizard.management_form }}
+{% if wizard.steps.step1 == 2 %}
+    <script type='text/javascript'>
+        function getSizes() {
+            var s = document.getElementById('torsoEditorOne').sizes;
+            document.getElementById('1-current_body_shape_shoulders').value = s[0];
+            document.getElementById('1-current_body_shape_waist').value = s[1];
+            document.getElementById('1-current_body_shape_hips').value = s[2];
+            var s = document.getElementById('torsoEditorTwo').sizes;
+            document.getElementById('1-ideal_body_shape_shoulders').value = s[0];
+            document.getElementById('1-ideal_body_shape_waist').value = s[1];
+            document.getElementById('1-ideal_body_shape_hips').value = s[2];
+        }
+    </script>
+    <applet vspace="10" name="torsoEditor" code="http://howlatewillbenbe.com/static/rhi/TorsoEditor.class" width="450" height="250" id="torsoEditorOne"></applet><br />
+    <applet vspace="10" name="torsoEditor" code="http://howlatewillbenbe.com/static/rhi/TorsoEditor.class" width="450" height="250" id="torsoEditorTwo"></applet>
+{% endif %}
 {% if wizard.form.forms %}
     {{ wizard.form.management_form }}
     {% for form in wizard.form.forms %}
