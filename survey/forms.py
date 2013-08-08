@@ -73,7 +73,6 @@ class PageThree(forms.ModelForm):
 class PageFour(forms.ModelForm):
     strenuous_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     moderate_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
-    strength_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     strenuous_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     moderate_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     strength_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)

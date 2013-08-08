@@ -1,36 +1,74 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags staticfiles %}
+
 {% block head %}
 {{ wizard.form.media }}
 {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'torso/torso-editor.css' %}" charset="utf-8">
+{% endblock %}
+
+{% block js %}
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <!-- jquery tools for slider -->
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+    <!-- raphael -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src='{% static 'torso/torso-editor.js' %}'></script>
+{% endblock %}
+
 {% block content %}
+{% if wizard.steps.step1 == 1 %}
+<p>"Out for Health" is an effort of the Rainbow Health Initiative to document the levels physical activity of Minnesota's Lesbian, Gay, Bisexual, Transgender, and Queer communities and their impact(s). Your answering of the following questions is greatly appreciated and completely confidential, but optional and you may discontinue at any time. Thank you very much for your help!</p>
+{% endif %}
 <p>Page {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post" class='form-horizontal'>
 {{ wizard.management_form }}
+{# Page two is custom form input using code found at  https://github.com/menssen/rhi-survey  Code is hosted at howlatewillbenbe.com #}
 {% if wizard.steps.step1 == 2 %}
-    <script type='text/javascript'>
-        function getSizes() {
-            var s = document.getElementById('torsoEditorOne').sizes;
-            document.getElementById('1-current_body_shape_shoulders').value = s[0];
-            document.getElementById('1-current_body_shape_waist').value = s[1];
-            document.getElementById('1-current_body_shape_hips').value = s[2];
-            var s = document.getElementById('torsoEditorTwo').sizes;
-            document.getElementById('1-ideal_body_shape_shoulders').value = s[0];
-            document.getElementById('1-ideal_body_shape_waist').value = s[1];
-            document.getElementById('1-ideal_body_shape_hips').value = s[2];
-        }
-    </script>
-    <applet vspace="10" name="torsoEditor" code="http://howlatewillbenbe.com/static/rhi/TorsoEditor.class" width="450" height="250" id="torsoEditorOne"></applet><br />
-    <applet vspace="10" name="torsoEditor" code="http://howlatewillbenbe.com/static/rhi/TorsoEditor.class" width="450" height="250" id="torsoEditorTwo"></applet>
-{% endif %}
-{% if wizard.form.forms %}
-    {{ wizard.form.management_form }}
-    {% for form in wizard.form.forms %}
-        {{ form }}
-    {% endfor %}
+    <form method='post' action='' class='form-horizontal'>
+        {% csrf_token %}
+        <p>Current</p>
+        <div class='torso-shoulders'>
+            Shoulder: <input type="range" min="50" max="250" value="150" id="current-torso-shoulders" name="1-current_body_shape_shoulders">
+        </div>
+        <div class='torso-waist'>
+            Waist: <input type="range" min="50" max="250" value="150" id="current-torso-waist" name="1-current_body_shape_waist">
+        </div>
+        <div class='torso-hips'>
+            Hips: <input type="range" min="50" max="250" value="150" id="current-torso-hips" name="1-current_body_shape_hips">
+        </div>
+
+        <div id="current-torso-container"></div> 
+
+        <p>Ideal</p>
+        <div class='torso-shoulders'>
+            Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders id_1-ideal_body_shape_shoulders' name='1-ideal_body_shape_shoulders' />
+        </div>
+        <div class='torso-waist'>
+            Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist id_1-ideal_body_shape_waist" name='1-ideal_body_shape_waist' />
+        </div>
+        <div class='torso-hips'>
+            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips id_1-ideal_body_shape_hips" name="1-ideal_body_shape_hips" />
+        </div>
+
+        <div id='ideal-torso-container'></div>
+
+        <div class='form-actions'>
+            <input type='submit' value='Next Page' name='submit' class='btn btn-primary' id='submit-id-submit' />
+        </div>
+    </form>
 {% else %}
-    {% crispy wizard.form %}
+    {% if wizard.form.forms %}
+            {{ wizard.form.management_form }}
+            {% for form in wizard.form.forms %}
+                {{ form }}
+            {% endfor %}
+    {% else %}
+        {% crispy wizard.form %}
+    {% endif %}
 {% endif %}
 {% comment %}
 {% if wizard.steps.prev %}
