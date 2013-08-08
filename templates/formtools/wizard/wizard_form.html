@@ -20,9 +20,55 @@
 {% endblock %}
 
 {% block content %}
+    {# Put branding for all pages here #}
 {% if wizard.steps.step1 == 1 %}
+    {# Put page 1 here #}
 <p>"Out for Health" is an effort of the Rainbow Health Initiative to document the levels physical activity of Minnesota's Lesbian, Gay, Bisexual, Transgender, and Queer communities and their impact(s). Your answering of the following questions is greatly appreciated and completely confidential, but optional and you may discontinue at any time. Thank you very much for your help!</p>
+
+{% elif wizard.steps.step1 == 2 %}
+    {# This is where you put page 2 #}
+    <form method='post' action='' class='form-horizontal'>
+        {% csrf_token %}
+        <p>Current</p>
+        <div class='torso-shoulders'>
+            Shoulder: <input type="range" min="50" max="250" value="150" id="current-torso-shoulders" name="1-current_body_shape_shoulders">
+        </div>
+        <div class='torso-waist'>
+            Waist: <input type="range" min="50" max="250" value="150" id="current-torso-waist" name="1-current_body_shape_waist">
+        </div>
+        <div class='torso-hips'>
+            Hips: <input type="range" min="50" max="250" value="150" id="current-torso-hips" name="1-current_body_shape_hips">
+        </div>
+
+        <div id="current-torso-container"></div> 
+
+        <p>Ideal</p>
+        <div class='torso-shoulders'>
+            Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders id_1-ideal_body_shape_shoulders' name='1-ideal_body_shape_shoulders' />
+        </div>
+        <div class='torso-waist'>
+            Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist id_1-ideal_body_shape_waist" name='1-ideal_body_shape_waist' />
+        </div>
+        <div class='torso-hips'>
+            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips id_1-ideal_body_shape_hips" name="1-ideal_body_shape_hips" />
+        </div>
+
+        <div id='ideal-torso-container'></div>
+
+        <div class='form-actions'>
+            <input type='submit' value='Next Page' name='submit' class='btn btn-primary' id='submit-id-submit' />
+        </div>
+    </form>
+{% elif wizard.steps.step1 == 3 %}
+    {# Put page 3 here #}
+{% elif wizard.steps.step1 == 4 %}
+    {# Put page 4 here #}
+{% elif wizard.steps.step1 == 5 %}
+    {# Put page 5 here #}
 {% endif %}
+{# Put footer branding here #}
+
+{% comment %}
 <p>Page {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post" class='form-horizontal'>
 {{ wizard.management_form }}
@@ -70,14 +116,7 @@
         {% crispy wizard.form %}
     {% endif %}
 {% endif %}
-{% comment %}
-{% if wizard.steps.prev %}
-These are removed due to not wanting the individual to go back. If these are wanted, add them back in survey.forms using crispy_forms
-<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">Page 1</button>
-<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Previous Page</button>
-{% endif %}
 {% endcomment %}
-</form>
 {% endblock %}
 
 

@@ -42,6 +42,12 @@ PAGE_FOUR_CHOICE_SET_DAYS = (('1', '1 day'), ('2', '2 days'), ('3', '3 days'), (
 PAGE_FIVE_CHOICE_SET = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'))
 PAGE_FIVE_CHOICE_SET_YNNS = (('Yes', 'Yes'), ('No', 'No'), ('Dont\' know / Not sure', 'Don\'t know / Not sure'))
 
+class Ethnicity(models.Model):
+    name = models.CharField('Ethnicity', max_length=40)
+
+    def __unicode__(self):
+        return self.name
+
 class Survey(models.Model):
     # Page 1
     age = models.IntegerField('How old are you?', max_length=3)
@@ -52,7 +58,8 @@ class Survey(models.Model):
     gender_identity = models.CharField('What is your current gender identity?', max_length=40, choices=GENDER_CHOICES)
     gender_identity_other = models.CharField('If you selected other for your gender identity, please provide it here.', max_length=40, blank=True, null=True)
     gender_assigned = models.CharField('What sex were you assigned at birth, meaning on your original birth certificate?', max_length=20, choices=GENDER_CHOICES_ASSIGNED)
-    ethnicity = models.CharField('What best describes your racial/ethnic background?', help_text='(please check all that apply)', max_length=40, choices=ETHNICITY_CHOICES)
+    ethnicity = models.ManyToManyField(Ethnicity)
+    #ethnicity = models.CharField('What best describes your racial/ethnic background?', help_text='(please check all that apply)', max_length=40, choices=ETHNICITY_CHOICES)
     ethnicity_other = models.CharField('If you selected other for ethnicity, please provide it here.', max_length=40, blank=True, null=True)
     
     # Page 2 - The device
@@ -77,13 +84,13 @@ class Survey(models.Model):
     exercise_other_reasons = models.TextField('If you have any other reasons for exercising, please list them below:', null=True, blank=True)
 
     # Page 4
-    strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
-    moderate_activity_type = models.CharField('Moderate exercise (not exhausting) Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
-    strength_activity_type = models.CharField('Exercise to Strengthen or tone your muscles. Ex: push-ups, sit-ups, weight lifting / training', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly)', help_text=' Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    moderate_activity_type = models.CharField('Moderate exercise (not exhausting)', help_text='Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    strength_activity_type = models.CharField('Exercise to Strengthen or tone your muscles.', help_text='Ex: push-ups, sit-ups, weight lifting / training', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
 
-    strenuous_activity_days = models.CharField('Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
-    moderate_activity_days = models.CharField('Moderate exercise (not exhausting) Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
-    strength_activity_days = models.CharField('Exercise to Strengthen or tone your muscles. Ex: push-ups, sit-ups, weight lifting / training', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strenuous_activity_days = models.CharField('Strenuous activity (heart beats rapidly)', help_text='Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    moderate_activity_days = models.CharField('Moderate exercise (not exhausting)', help_text='Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strength_activity_days = models.CharField('Exercise to Strengthen or tone your muscles.', help_text='Ex: push-ups, sit-ups, weight lifting / training', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
 
     # Page 5
     self_esteem = models.CharField('Overall, I have high self-esteem.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
@@ -102,5 +109,5 @@ class Survey(models.Model):
     exercise_inconvenient = models.CharField('I find it inconvenient to exercise.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_goals = models.CharField('I have difficulty setting exercise goals, monitoring progress, and rewarding my own progress towards those goals.', max_length=1, choices=PAGE_FIVE_CHOICE_SET)
     exercise_lgbtq_friendly = models.CharField('Do you feel like you have access to an LGBTQ-friendly exercise environment? This could be a fitness center, classes, a park, a sports team, etc.', max_length=25, choices=PAGE_FIVE_CHOICE_SET_YNNS)
-    exercise_space_friendly = models.TextField('How do you know if an exercise space is LGBTQ friendly? For example, do you notice signage, staff, or other people exercising?', max_length=400)
-    improve_lgbtq_spaces = models.TextField('What could spaces or activities do to become more friendly and welcoming to the LGBTQ community?', max_length=400)
+    exercise_space_friendly = models.TextField('How do you know if an exercise space is LGBTQ friendly? For example, do you notice signage, staff, or other people exercising?', max_length=400, blank=True, null=True)
+    improve_lgbtq_spaces = models.TextField('What could spaces or activities do to become more friendly and welcoming to the LGBTQ community?', max_length=400, blank=True, null=True)

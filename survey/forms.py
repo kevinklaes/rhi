@@ -71,8 +71,9 @@ class PageThree(forms.ModelForm):
                     'exercise_sport', 'exercise_fun', 'exercise_muscle', 'exercise_not',)
 
 class PageFour(forms.ModelForm):
-    strenuous_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
-    moderate_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
+    strenuous_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    moderate_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    strength_activity_type = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
     strenuous_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     moderate_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
     strength_activity_days = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FOUR_CHOICE_SET_DAYS)
@@ -86,8 +87,8 @@ class PageFour(forms.ModelForm):
                                 InlineRadios('strenuous_activity_type'),
                                 InlineRadios('moderate_activity_type'),
                                 InlineRadios('strength_activity_type'),
-                                InlineRadios('strenuous_activity_type'),
-                                InlineRadios('moderate_activity_type'),
+                                InlineRadios('strenuous_activity_days'),
+                                InlineRadios('moderate_activity_days'),
                                 InlineRadios('strength_activity_days'),)
 
     class Meta:
@@ -104,6 +105,7 @@ class PageFive(forms.ModelForm):
     exercise_lack_skills = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
     exercise_lack_funds = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
     exercise_intimidation = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
+    exercise_lack_access = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
     exercise_get_enough = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
     low_self_esteem = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
     exercise_safety_concern = forms.ChoiceField(widget = forms.RadioSelect(), choices=PAGE_FIVE_CHOICE_SET)
