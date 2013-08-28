@@ -9,6 +9,10 @@ from survey.models import *
 
 class PageOne(forms.ModelForm):
     zipcode = USZipCodeField()
+    #sexual_orientation = forms.ChoiceField(widget = forms.RadioSelect(), choices = SEXUAL_ORIENTATION_CHOICES)
+    #gender_identity = forms.ChoiceField(widget = forms.RadioSelect(), choices = GENDER_CHOICES)
+    #gender_assigned = forms.ChoiceField(widget = forms.RadioSelect(), choices = GENDER_CHOICES_ASSIGNED)
+    #ethnicity = forms.ModelMultipleChoiceField(queryset = Ethnicity.objects.all(), widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, *args, **kwargs):
         super(PageOne, self).__init__(*args, **kwargs)
