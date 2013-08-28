@@ -6,6 +6,22 @@
 <title>{% block page_title %}{{ page_title|default:'Out for Health' }}{% endblock %}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel='stylesheet' href='{% static 'bootstrap/css/bootstrap.min.css' %}' type='text/css' />
+<style type='text/css'>
+    .container {
+        background-color: white;
+        border: 1px black solid;
+        padding: 2px;
+    }
+    .header-logo {
+        float: right;
+        display: block;
+        clear: both;
+        padding: 5px;
+    }
+    body {
+        background-color: #ececec;
+        }
+</style>
 {% block css %}{% endblock %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script type='text/javascript' src='{% static 'bootstrap/js/bootstrap.min.js' %}'></script>
@@ -16,9 +32,17 @@
 </head>
 <body>
 <div class='container'>
-{% block logo %}{% endblock %}
+{% block logo %}
+    <div class='grid12'>
+        <img src='http://howlatewillbenbe.com/media/rhi/header.jpg' class='header-logo' />
+    </div>
+{% endblock %}
 {% block content %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+    <div class='grid12'>
+        <img src='http://howlatewillbenbe.com/media/rhi/footer.jpg' class='footer-logo' />
+    </div>
+{% endblock %}
 </div>
 </body>
 </html>
