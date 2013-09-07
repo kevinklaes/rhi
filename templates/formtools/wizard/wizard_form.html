@@ -55,30 +55,30 @@
         </label><label class="radio"><input type="radio" name="0-gender_assigned" id="id_0-gender_assigned_2" value="Female">Female
         </label><label class="radio"><input type="radio" name="0-gender_assigned" id="id_0-gender_assigned_3" value="Interex">Interex
         </label></div></div><div id="div_id_0-ethnicity" class="control-group"><label for="id_0-ethnicity_0" class="control-label requiredField">
-                Ethnicity<span class="asteriskField">*</span></label><div class="controls"  class="form-horizontal"><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_1" value="1">Other
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_2" value="2">Black / African-American
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_3" value="3">African-Born
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_4" value="4">Non-Hispanic White / Caucasian
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_5" value="5">Hispanic / Latino
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_6" value="6">American Indian / Native American
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_7" value="7">Native Hawaiian / Pacific Islander
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_8" value="8">Hmong
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_9" value="9">Asian Indian
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_10" value="10">Chinese
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_11" value="11">Japanese
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_12" value="12">Vietnamese
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_13" value="13">Korean
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_14" value="14">Filipino
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_15" value="15">Laotian
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_16" value="16">Cambodian
-        </label><label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_17" value="17">Not Sure / Prefer Not to Answer
-        </label></div></div><div id="div_id_0-ethnicity_other" class="control-group"><label for="id_0-ethnicity_other" class="control-label ">
+                Ethnicity<span class="asteriskField">*</span></label><div class="controls"  class="form-horizontal">
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_2" value="2">Black / African-American</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_3" value="3">African-Born</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_4" value="4">Non-Hispanic White / Caucasian</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_5" value="5">Hispanic / Latino</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_6" value="6">American Indian / Native American</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_7" value="7">Native Hawaiian / Pacific Islander</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_8" value="8">Hmong</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_9" value="9">Asian Indian</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_10" value="10">Chinese</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_11" value="11">Japanese</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_12" value="12">Vietnamese</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_13" value="13">Korean</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_14" value="14">Filipino</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_15" value="15">Laotian</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_16" value="16">Cambodian</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_1" value="1">Other</label>
+        <label class="checkbox"><input type="checkbox" name="0-ethnicity" id="id_0-ethnicity_17" value="17">Not Sure / Prefer Not to Answer</label>
+        </div></div><div id="div_id_0-ethnicity_other" class="control-group"><label for="id_0-ethnicity_other" class="control-label ">
                 If you selected other for ethnicity, please provide it here.
             </label><div class="controls"><input class="textinput textInput" id="id_0-ethnicity_other" maxlength="40" name="0-ethnicity_other" type="text" /> </div></div><div class="form-actions"><input type="submit" name="submit" value="Next Page" class="btn btn-primary" id="submit-id-submit" /> </div>
 
 {% elif wizard.steps.step1 == 2 %}
     {# This is where you put page 2 #}
-        {% csrf_token %}
         <p>Current</p>
         <div class='torso-shoulders'>
             Shoulder: <input type="range" min="50" max="250" value="150" id="current-torso-shoulders" name="1-current_body_shape_shoulders">
@@ -94,13 +94,13 @@
 
         <p>Ideal</p>
         <div class='torso-shoulders'>
-            Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders id_1-ideal_body_shape_shoulders' name='1-ideal_body_shape_shoulders' />
+            Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders' name='1-ideal_body_shape_shoulders' />
         </div>
         <div class='torso-waist'>
-            Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist id_1-ideal_body_shape_waist" name='1-ideal_body_shape_waist' />
+            Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist" name='1-ideal_body_shape_waist' />
         </div>
         <div class='torso-hips'>
-            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips id_1-ideal_body_shape_hips" name="1-ideal_body_shape_hips" />
+            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips" name="1-ideal_body_shape_hips" />
         </div>
 
         <div id='ideal-torso-container'></div>
@@ -110,15 +110,34 @@
         </div>
     </form>
 {% elif wizard.steps.step1 == 3 %}
-<div id="div_id_2-exercise_stay_health" class="control-group"><label for="id_2-exercise_stay_health"  class="control-label requiredField">
-                Exercise stay health<span class="asteriskField">*</span></label><div class="controls"><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_1" value="1">1
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_2" value="2">2
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_3" value="3">3
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_4" value="4">4
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_5" value="5">5
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_6" value="6">6
-        </label><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_7" value="7">7
-        </label></div></div><div id="div_id_2-exercise_lose_weight" class="control-group"><label for="id_2-exercise_lose_weight"  class="control-label requiredField">
+<table class='table table-striped'>
+    <tr>
+        <th></th>
+        <th>-&nbsp;1&nbsp;-<br />Not very true of me</th>
+        <th>-&nbsp;2&nbsp;-</th>
+        <th>-&nbsp;3&nbsp;-</th>
+        <th>-&nbsp;4&nbsp;-</th>
+        <th>-&nbsp;5&nbsp;-</th>
+        <th>-&nbsp;6&nbsp;-</th>
+        <th>-&nbsp;7&nbsp;-<br />Very true of me</th>
+    </tr>
+    <tr>
+        <div id="div_id_2-exercise_stay_health" class="control-group">
+        <td>
+           <label for="id_2-exercise_stay_health" class="control-label requiredField">Exercise stay health<span class="asteriskField">*</span></label>
+        </td>
+        <div class="controls">
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_1" value="1">1</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_2" value="2">2</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_3" value="3">3</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_4" value="4">4</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_5" value="5">5</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_6" value="6">6</label></td>
+            <td><label class="radio inline"><input type="radio" name="2-exercise_stay_health" id="id_2-exercise_stay_health_7" value="7">7</label></td>
+        </div>
+    </tr>
+</table>
+        </div><div id="div_id_2-exercise_lose_weight" class="control-group"><label for="id_2-exercise_lose_weight"  class="control-label requiredField">
                 Exercise lose weight<span class="asteriskField">*</span></label><div class="controls"><label class="radio inline"><input type="radio" name="2-exercise_lose_weight" id="id_2-exercise_lose_weight_1" value="1">1
         </label><label class="radio inline"><input type="radio" name="2-exercise_lose_weight" id="id_2-exercise_lose_weight_2" value="2">2
         </label><label class="radio inline"><input type="radio" name="2-exercise_lose_weight" id="id_2-exercise_lose_weight_3" value="3">3
