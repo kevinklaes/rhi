@@ -22,7 +22,7 @@
 {% block content %}
 {# Put branding for all pages here #}
 {% if wizard.steps.step1 == 1 %}
-<p>"Out for Health" is an effort of the Rainbow Health Initiative to document the levels physical activity of Minnesota's Lesbian, Gay, Bisexual, Transgender, and Queer communities and their impact(s). Your answering of the following questions is greatly appreciated and completely confidential, but optional and you may discontinue at any time. Thank you very much for your help!</p>
+<p align='center'><b>"Out for Health" is an effort of the Rainbow Health Initiative to document the levels physical activity of Minnesota's Lesbian, Gay, Bisexual, Transgender, and Queer communities and their impact(s). Your answering of the following questions is greatly appreciated and completely confidential, but optional and you may discontinue at any time. Thank you very much for your help!</b></p>
 {% endif %}
 <form method='post' action='' class='form-horizontal'>
 {{ wizard.management_form }}{% csrf_token %}
