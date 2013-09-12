@@ -17,6 +17,5 @@ class SurveyWizard(SessionWizardView):
         self.instance.save()
         return HttpResponse(reverse('thanks'))
 
-
 class Thanks(TemplateView):
     template_name = 'thanks.html'
