@@ -84,9 +84,9 @@ class Survey(models.Model):
     exercise_other_reasons = models.TextField('If you have any other reasons for exercising, please list them below:', null=True, blank=True)
 
     # Page 4
-    strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly)', help_text=' Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
-    moderate_activity_type = models.CharField('Moderate exercise (not exhausting)', help_text='Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
-    strength_activity_type = models.CharField('Exercise to Strengthen or tone your muscles.', help_text='Ex: push-ups, sit-ups, weight lifting / training', max_length=1, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    strenuous_activity_type = models.CharField('Strenuous activity (heart beats rapidly)', help_text=' Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=4, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    moderate_activity_type = models.CharField('Moderate exercise (not exhausting)', help_text='Ex: walking quickly, easy biking, volleyball, yoga', max_length=4, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
+    strength_activity_type = models.CharField('Exercise to Strengthen or tone your muscles.', help_text='Ex: push-ups, sit-ups, weight lifting / training', max_length=4, choices=PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE)
 
     strenuous_activity_days = models.CharField('Strenuous activity (heart beats rapidly)', help_text='Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
     moderate_activity_days = models.CharField('Moderate exercise (not exhausting)', help_text='Ex: walking quickly, easy biking, volleyball, yoga', max_length=1, choices=PAGE_FOUR_CHOICE_SET_DAYS)
