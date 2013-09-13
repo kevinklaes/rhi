@@ -26,7 +26,7 @@
 {% endif %}
 <form method='post' action='' class='form-horizontal'>
 {{ wizard.management_form }}{% csrf_token %}
-<p>Page {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+<p>Page {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p><p>*denotes questions which require an answer</p>
 {% if wizard.steps.step1 == 1 %}
     {# Put page 1 here #}
 <div id="div_id_0-age" class="control-group"><label for="id_0-age" class="control-label requiredField">
