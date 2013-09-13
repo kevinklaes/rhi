@@ -78,31 +78,69 @@
             </label><div class="controls"><input class="textinput textInput" id="id_0-ethnicity_other" maxlength="40" name="0-ethnicity_other" type="text" /> </div></div><div class="form-actions"><input type="submit" name="submit" value="Next Page" class="btn btn-primary" id="submit-id-submit" /> </div>
 {% elif wizard.steps.step1 == 2 %}
     {# This is where you put page 2 #}
-        <p>Please adjust the sliders below until the rectangle resembles your CURRENT body shape.</p>
-        <div class='torso-shoulders'>
-            Shoulder: <input type="range" min="50" max="250" value="150" id="current-torso-shoulders" name="1-current_body_shape_shoulders">
-        </div>
-        <div class='torso-waist'>
-            Waist: <input type="range" min="50" max="250" value="150" id="current-torso-waist" name="1-current_body_shape_waist">
-        </div>
-        <div class='torso-hips'>
-            Hips: <input type="range" min="50" max="250" value="150" id="current-torso-hips" name="1-current_body_shape_hips">
-        </div>
-
-        <div id="current-torso-container"></div> 
-
-        <p>Please adjust the sliders below until the rectangle resembles your IDEAL body shape.</p>
-        <div class='torso-shoulders'>
-            Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders' name='1-ideal_body_shape_shoulders' />
-        </div>
-        <div class='torso-waist'>
-            Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist" name='1-ideal_body_shape_waist' />
-        </div>
-        <div class='torso-hips'>
-            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips" name="1-ideal_body_shape_hips" />
-        </div>
-
-        <div id='ideal-torso-container'></div>
+       <table width='80%' cellpadding='10'>
+    	<tr>
+    		<td colspan='2'>Please adjust the sliders below until the rectangle resembles your <b>CURRENT</b> body shape.</td>
+    	</tr>
+        <tr>
+        	<td rowspan='3'>
+        		<div id="current-torso-container" align='top'></div>
+        	</td>
+        	<td>
+        				<div class='torso-shoulders'>
+        				            Shoulder: <input type="range" min="50" max="250" value="150" id="current-torso-shoulders" name="1-current_body_shape_shoulders">
+        				</div>
+        	</td>
+        </tr>
+        <tr>
+        			<td height='300'>
+        				<div class='torso-waist'>
+        				            Waist: <input type="range" min="50" max="250" value="150" id="current-torso-waist" name="1-current_body_shape_waist">
+        				        </div>
+        			</td>
+        </tr>
+        <tr>
+        			<td>
+        				<div class='torso-hips'>
+        				            Hips: <input type="range" min="50" max="250" value="150" id="current-torso-hips" name="1-current_body_shape_hips">
+        				        </div>
+        			</td>
+        </tr>
+        <tr>
+         <td colspan='2'>
+         	<hr size='3' />
+         </td>
+        </tr>
+        <tr>
+        <td colspan='2'>
+        	Please adjust the sliders below until the rectangle resembles your <b>IDEAL</b> body shape.
+        </td>
+        </tr>
+            <tr>
+            	<td rowspan='3'>
+            		 <div id='ideal-torso-container'></div>
+            	</td>
+            	<td>
+            				<div class='torso-shoulders'>
+            				           Shoulders: <input type='range' min='50' max='250' value='150' id='ideal-torso-shoulders' name='1-ideal_body_shape_shoulders' />
+            				       </div>
+            			</td>
+            </tr>
+            <tr>
+            			<td height='300'>
+            				<div class='torso-waist'>
+            				           Waist: <input type="range" min="50" max="250" value="150" id="ideal-torso-waist" name='1-ideal_body_shape_waist' />
+            				       </div>
+            			</td>
+           	</tr>
+            <tr>
+            			<td>
+            				<div class='torso-hips'>
+            				            Hips: <input type="range" min="50" max="250" value="150" id="ideal-torso-hips" name="1-ideal_body_shape_hips" />
+            				        </div>
+            			</td>
+            </tr>
+        </table>
 
         <div class='form-actions'>
             <input type='submit' value='Next Page' name='submit' class='btn btn-primary' id='submit-id-submit' />
