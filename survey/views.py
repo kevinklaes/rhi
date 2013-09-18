@@ -1,6 +1,6 @@
 from django.contrib.formtools.wizard.views import SessionWizardView
 from django.views.generic import TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from survey.models import *
@@ -15,7 +15,7 @@ class SurveyWizard(SessionWizardView):
 
     def done(self, form_list, **kwargs):
         self.instance.save()
-        return HttpResponse(reverse('thanks'))
+        return HttpResponseRedirect(reverse('thanks'))
 
 class Thanks(TemplateView):
     template_name = 'thanks.html'
