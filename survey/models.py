@@ -38,7 +38,7 @@ PAGE_FOUR_CHOICE_SET_EXERCISE_TYPE = (('None', 'None'),
                                         ('3', '2 1/5 - 4 hours'),
                                         ('4', '4 1/2 - 6 hours'),
                                         ('5', '6 1/2 hours or more'),)
-PAGE_FOUR_CHOICE_SET_DAYS = (('1', '1 day'), ('2', '2 days'), ('3', '3 days'), ('4', '4 days'), ('5', '5 days'), ('6', '6 days'), ('7', '7 days'))
+PAGE_FOUR_CHOICE_SET_DAYS = (('0', '0 days'), ('1', '1 day'), ('2', '2 days'), ('3', '3 days'), ('4', '4 days'), ('5', '5 days'), ('6', '6 days'), ('7', '7 days'))
 PAGE_FIVE_CHOICE_SET = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'))
 PAGE_FIVE_CHOICE_SET_YNNS = (('Yes', 'Yes'), ('No', 'No'), ('Dont\' know / Not sure', 'Don\'t know / Not sure'))
 
