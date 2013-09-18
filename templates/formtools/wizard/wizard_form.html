@@ -22,7 +22,7 @@
 {% block content %}
 {# Put branding for all pages here #}
 {% if wizard.steps.step1 == 1 %}
-<p align='center'><b>"Out for Health" is an effort of the Rainbow Health Initiative to document the levels physical activity of Minnesota's Lesbian, Gay, Bisexual, Transgender, and Queer communities and their impact(s). Your answering of the following questions is greatly appreciated and completely confidential, but optional and you may discontinue at any time. Thank you very much for your help!</b></p>
+<p align='center'><b>“Out for Health” is an effort of Rainbow Health Initiative to document levels and impact of physical activity within Minnesota’s Lesbian, Gay, Bisexual, Transgender and Queer communities. Taking time to answer the following questions is greatly appreciated, anonymous, and completely confidential. Thank you very much for your help!</b></p>
 {% endif %}
 <form method='post' action='' class='form-horizontal'>
 {{ wizard.management_form }}{% csrf_token %}
@@ -284,6 +284,7 @@
     <tr>Please indicate how many days in an average week you participate in the following activities (*denotes questions which require an answer):</tr>
     <tr>
         <th width='28%'></th>
+        <th width='9%'>0 days</th>
         <th width='9%'>1 day</th>
         <th width='9%'>2 days</th>
         <th width='9%'>3 days</th>
@@ -294,7 +295,8 @@
     </tr>
     
         <tr><td><label for="id_3-strenuous_activity_days" class="control-label requiredField">
-                Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_1" value="1">
+                Strenuous activity (heart beats rapidly) Ex: biking fast, aerobics, running, basketball, swimming laps, rollerblading<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_0" value="0">
+        </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_1" value="1">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_2" value="2">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_3" value="3">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_4" value="4">
@@ -302,7 +304,8 @@
         </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_6" value="6">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strenuous_activity_days" id="id_3-strenuous_activity_days_7" value="7">
         </label></td></div></tr><tr><td><label for="id_3-moderate_activity_days" class="control-label requiredField">
-                Moderate exercise (not exhausting) Ex: walking quickly, easy biking, volleyball, yoga<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_1" value="1">
+                Moderate exercise (not exhausting) Ex: walking quickly, easy biking, volleyball, yoga<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_1" value="0">
+        </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_1" value="1">
         </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_2" value="2">
         </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_3" value="3">
         </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_4" value="4">
@@ -310,7 +313,8 @@
         </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_6" value="6">
         </label></td><td><label class="radio inline"><input type="radio" name="3-moderate_activity_days" id="id_3-moderate_activity_days_7" value="7">
         </label></td></div></tr><tr><td><label for="id_3-strength_activity_days" class="control-label requiredField">
-                Exercise to Strengthen or tone your muscles. Ex: push-ups, sit-ups, weight lifting / training<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_1" value="1">
+                Exercise to Strengthen or tone your muscles. Ex: push-ups, sit-ups, weight lifting / training<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_0" value="0">
+        </label></td><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_1" value="1">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_2" value="2">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_3" value="3">
         </label></td><td><label class="radio inline"><input type="radio" name="3-strength_activity_days" id="id_3-strength_activity_days_4" value="4">
@@ -406,7 +410,7 @@
         <th width='9%'>-&nbsp;7&nbsp;-<br />Very true of me</th>
         </tr>
         <tr><td><label for="id_4-exercise_intimidation" class="control-label requiredField">
-                8. I feel intimidated about going to a gym or fitness club. (I worry I won't know what I'm doing and/or that others will judge me.)<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_1" value="1">1
+                8. I feel intimidated about going to a gym or fitness club. (I worry I won't know what I'm doing and/or that others will judge me)<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_1" value="1">1
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_2" value="2">2
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_3" value="3">3
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_4" value="4">4
@@ -414,7 +418,7 @@
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_6" value="6">6
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_7" value="7">7
         </label></td></div></tr><tr><td><label for="id_4-exercise_get_enough" class="control-label requiredField">
-                9. I feel I don't have enough encouragement, companionship, or support from friends and family to exercise.<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_intimidation_1" value="1">1
+                9. I feel I don't have enough encouragement, companionship, or support from friends and family to exercise.<span class="asteriskField">*</span></label></td><div class="controls"><td><label class="radio inline"><input type="radio" name="4-exercise_intimidation" id="id_4-exercise_encouragement_1" value="1">1
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_lack_encouragement" id="id_4-exercise_lack_encouragement_2" value="2">2
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_lack_encouragement" id="id_4-exercise_lack_encouragement_3" value="3">3
         </label></td><td><label class="radio inline"><input type="radio" name="4-exercise_lack_encouragement" id="id_4-exercise_lack_encouragement_4" value="4">4
