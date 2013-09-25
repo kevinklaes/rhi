@@ -147,7 +147,7 @@
             <input type='submit' value='Next Page' name='submit' class='btn btn-primary' id='submit-id-submit' />
         </div>
     </form>
-    <script>$(':range').rangeinput();</script>
+    <script>if (!("ontouchstart" in document.documentElement)) {$(':range').rangeinput();}</script>
 {% elif wizard.steps.step1 == 3 %}
 <center>
 <table class='table table-striped' width='925px'>
