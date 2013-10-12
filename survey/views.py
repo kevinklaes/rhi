@@ -15,7 +15,7 @@ class SurveyWizard(SessionWizardView):
 
     def done(self, form_list, **kwargs):
         self.instance.save()
-        return HttpResponseRedirect(reverse('thanks'))
+        return HttpResponseRedirect('http://www.rainbowhealth.org/survey/thanks/')#reverse('thanks'))
 
 class Thanks(TemplateView):
     template_name = 'thanks.html'
