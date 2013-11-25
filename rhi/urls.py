@@ -8,6 +8,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url('export/$', Results.as_view(), name='results'),
     url('thanks/$', Thanks.as_view(), name='thanks'),
     url('^$', SurveyWizard.as_view([PageOne, PageTwo, PageThree, PageFour, PageFive]), name='rhi-form'),
     # Examples:
