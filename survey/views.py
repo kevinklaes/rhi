@@ -1,5 +1,5 @@
 from django.contrib.formtools.wizard.views import SessionWizardView
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.exceptions import PermissionDenied
