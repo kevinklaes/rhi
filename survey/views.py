@@ -1,6 +1,6 @@
 from django.contrib.formtools.wizard.views import SessionWizardView
 from django.views.generic import TemplateView, ListView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.core.exceptions import PermissionDenied
 from survey.models import *
